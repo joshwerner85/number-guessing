@@ -8,20 +8,24 @@
 var msgDisplayEl = document.getElementById('msgDisplay');
 var userInputEl = document.getElementById('userInput');
 var submitBtnEl = document.getElementById('submitBtn');
-var number;
-
+var number=Math.round(Math.random()*(99)+1);
 // =============================================================================
 // Some example functions, to get you started. You can change, delete, add to
 // these however you like!
 // =============================================================================
 
 function generateNumber() {
-  return 5;
+ 
+  return number;
+  
 };
 
 function clearInput() {
   userInputEl.value = '';
+
+
 };
+console.log(number);
 
 // =============================================================================
 // The guessing game. Everytime the user clicks the button on the page, this
@@ -43,11 +47,16 @@ function guessingGame(userInput) {
       number = generateNumber();
       submitBtnEl.value = "Submit"
     }
-    msgDisplayEl.innerHTML = "Please guess the number 5"
-  } else if (userInput === "5") {
+    msgDisplayEl.innerHTML = "Please guess between the number 1 and 100"
+  } else if (userInput == number) {
     msgDisplayEl.innerHTML = "You guessed it! Great job!"
     clearInput();
     submitBtnEl.value = "Play Again"
   }
 
+
+  // (tryAgain == number)
+  //   msgDisplayEl.innerHTML = "Wrong Number Try again"
+
+  // // prompt(userInput == number);
 }
