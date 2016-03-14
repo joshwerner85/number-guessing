@@ -8,11 +8,17 @@
 var msgDisplayEl = document.getElementById('msgDisplay');
 var userInputEl = document.getElementById('userInput');
 var submitBtnEl = document.getElementById('submitBtn');
-var number=Math.round(Math.random()*(99)+1);
+var number= Math.round(Math.random()*(99)+1);
+var resetButton = document.getElementById('#reset');
 // =============================================================================
 // Some example functions, to get you started. You can change, delete, add to
 // these however you like!
 // =============================================================================
+
+// resetButton.addEventListener("click", function(){
+//       number = generateNumber;
+// })
+
 
 function generateNumber() {
  
@@ -42,17 +48,38 @@ console.log(number);
 
 function guessingGame(userInput) {
 
+
+
+
   if (!userInput) {
     if (submitBtnEl.value === "Start") {
       number = generateNumber();
       submitBtnEl.value = "Submit"
     }
     msgDisplayEl.innerHTML = "Please guess between the number 1 and 100"
+
+
+     
+
   } else if (userInput == number) {
     msgDisplayEl.innerHTML = "You guessed it! Great job!"
     clearInput();
     submitBtnEl.value = "Play Again"
-  }
+  } 
+// else if (userInput > number()) {
+//      msgDisplayEl.innerHTML = "Your guess was too high!";
+// console.log(userInput < number)
+else if (userInput < number) {
+    msgDisplay.innerHTML = "Wrong Your number is greater then"
+}
+
+
+else if (userInput > number) {
+    msgDisplay.innerHTML = "Wrong Your number is less then"
+}
+
+ 
+
 
 
   // (tryAgain == number)
